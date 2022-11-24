@@ -8,4 +8,30 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="ComponentsLibraryNet60" Version="1.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Unity" Version="5.11.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ComponentsLibrary\ComponentsLibrary.csproj" />
+    <ProjectReference Include="..\LibraryBusinessLogic\LibraryBusinessLogic.csproj" />
+    <ProjectReference Include="..\LibraryContracts\LibraryContracts.csproj" />
+    <ProjectReference Include="..\LibraryDatabaseImplement\LibraryDatabaseImplement.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="NonVisualComponentsNETFramework">
+      <HintPath>C:\Users\Adelina\Downloads\NonVisualComponentsNETFramework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Components\" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace ComponentsCustom
+﻿namespace ComponentsLibrary.IstyukovVisualComponents
 {
     partial class ListBoxModified
     {

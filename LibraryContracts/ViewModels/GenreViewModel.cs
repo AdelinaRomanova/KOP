@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace LibraryContracts.ViewModels
 {
-    internal class GenreViewModel
+    public class GenreViewModel
     {
+        public int? Id { get; set; }
+
+        public string Name { get; set; }
     }
 }

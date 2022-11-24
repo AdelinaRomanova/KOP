@@ -1,9 +1,10 @@
-﻿using ComponentsCustomUnvisual.HelperModels;
+﻿using ComponentsLibrary.IstyukovNotVisualComponents.HelperModels;
+using ComponentsLibrary.MyUnvisualComponents.HelperModels;
 using System.ComponentModel;
 using Xceed.Document.NET;
 using Xceed.Words.NET;
 
-namespace ComponentsCustomUnvisual
+namespace ComponentsLibrary.IstyukovNotVisualComponents
 {
     public partial class WordGistagram : Component
     {

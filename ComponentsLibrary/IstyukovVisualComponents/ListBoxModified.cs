@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ComponentsCustom
+namespace ComponentsLibrary.IstyukovVisualComponents
 {
     public partial class ListBoxModified : UserControl
     {

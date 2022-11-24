@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace LibraryContracts.BindingModels
 {
-    internal class BookBindingModel
+    public class BookBindingModel
     {
+        public int? Id { get; set; }
+
+        public string Title { get; set; }
+
+        public string Description { get; set; }
+
+        public string Genre { get; set; }
+
+        public int? Cost { get; set; }
     }
 }

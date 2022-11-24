@@ -1,4 +1,4 @@
-﻿namespace ComponentsCustomUnvisual
+﻿namespace ComponentsLibrary.MyUnvisualComponents
 {
     partial class WordTableCustom
     {

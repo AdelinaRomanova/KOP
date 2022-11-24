@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using Excel = Microsoft.Office.Interop.Excel;
 
-namespace NotVisualComponents
+namespace ComponentsLibrary.MyNotVisualComponents
 {
     public partial class RomanovaExcelTable : Component
     {

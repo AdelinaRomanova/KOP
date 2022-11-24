@@ -10,7 +10,7 @@ using System.Xml.Linq;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 
-namespace WinFormsControlLibraryBasharinLab2
+namespace ComponentsLibrary.BasharinNotVisualComponents
 {
     public partial class PicToPDF : Component
     {

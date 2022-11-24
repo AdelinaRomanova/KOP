@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace ComponentsCustom
+namespace ComponentsLibrary.IstyukovVisualComponents
 {
     public partial class TextBoxModified : UserControl
     {
@@ -22,6 +22,43 @@ namespace ComponentsCustom
         public TextBoxModified()
         {
             InitializeComponent();
+        }
+
+        public int? Value
+        {
+            get
+            {
+                int? result;
+                if (checkBoxNull.Checked)
+                {
+                    result = null;
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(textBox.Text))
+                    {
+                        throw new ArgumentNullException();
+                    }
+
+                    if (!int.TryParse(textBox.Text, out var result2))
+                    {
+                        throw new ArgumentException();
+                    }
+
+                    result = result2;
+                }
+
+                return result;
+            }
+            set
+            {
+                if (value.HasValue)
+                {
+                    textBox.Text = value.Value.ToString("N2");
+                }
+
+                checkBoxNull.Checked = !value.HasValue;
+            }
         }
 
         public double? ValueTextBox

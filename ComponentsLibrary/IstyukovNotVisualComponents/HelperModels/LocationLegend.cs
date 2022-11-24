@@ -1,4 +1,4 @@
-﻿namespace ComponentsCustomUnvisual.HelperModels
+﻿namespace ComponentsLibrary.MyUnvisualComponents.HelperModels
 {
     public enum LocationLegend
     {

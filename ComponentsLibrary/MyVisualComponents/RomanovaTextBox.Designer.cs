@@ -1,4 +1,4 @@
-﻿namespace lab
+﻿namespace ComponentsLibrary.MyVisualComponents
 {
     partial class RomanovaTextBox
     {

@@ -1,20 +1,11 @@
-﻿using ComponentsCustomUnvisual.HelperModels;
+﻿using ComponentsLibrary.MyUnvisualComponents.HelperModels;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DocumentFormat.OpenXml;
-using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
-using ComponentsCustomUnvisual.HelperModels;
 using System.Reflection;
 
-namespace ComponentsCustomUnvisual
+namespace ComponentsLibrary.MyUnvisualComponents
 {
     public partial class WordTableCustom : Component
     {

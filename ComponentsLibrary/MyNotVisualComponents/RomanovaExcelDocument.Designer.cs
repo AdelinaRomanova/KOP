@@ -1,4 +1,4 @@
-﻿namespace NotVisualComponents
+﻿namespace ComponentsLibrary.MyNotVisualComponents
 {
     partial class RomanovaExcelDocument
     {

@@ -9,8 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\lab\lab.csproj" />
-    <ProjectReference Include="..\NotVisualComponents\NotVisualComponents.csproj" />
+    <ProjectReference Include="..\ComponentsLibrary\ComponentsLibrary.csproj" />
   </ItemGroup>
 
 </Project>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WinFormsControlLibraryBasharinLab2
+namespace ComponentsLibrary.BasharinNotVisualComponents
 {
     public enum Area
     {

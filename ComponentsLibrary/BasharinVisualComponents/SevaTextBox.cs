@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinFormsControlLibraryBasharin
+namespace ComponentsLibrary.BasharinVisualComponents
 {
     public partial class SevaTextBox : UserControl
     {

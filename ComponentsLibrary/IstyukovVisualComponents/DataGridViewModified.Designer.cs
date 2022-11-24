@@ -1,4 +1,4 @@
-﻿namespace ComponentsCustom
+﻿namespace ComponentsLibrary.IstyukovVisualComponents
 {
     partial class DataGridViewModified
     {
@@ -32,7 +32,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridViewAlesa
+            // dataGridView
             // 
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(4, 4);
@@ -41,16 +41,16 @@
             this.dataGridView.RowHeadersWidth = 62;
             this.dataGridView.RowTemplate.Height = 28;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(278, 156);
+            this.dataGridView.Size = new System.Drawing.Size(434, 289);
             this.dataGridView.TabIndex = 0;
             // 
-            // DataGridViewControlAlesa
+            // DataGridViewModified
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dataGridView);
-            this.Name = "DataGridViewControlAlesa";
-            this.Size = new System.Drawing.Size(285, 163);
+            this.Name = "DataGridViewModified";
+            this.Size = new System.Drawing.Size(441, 296);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 

@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace lab
+namespace ComponentsLibrary.MyVisualComponents
 {
     public partial class RomanovaListBox : UserControl
     {

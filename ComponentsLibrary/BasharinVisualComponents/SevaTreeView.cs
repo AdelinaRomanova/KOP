@@ -4,77 +4,98 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace WinFormsControlLibraryBasharin
+namespace ComponentsLibrary.BasharinVisualComponents
 {
     public partial class SevaTreeView : UserControl
     {
+        private List<string> _hierarhy;
+        public void SetHierarhy(List<string> hierarhy)
+        {
+            _hierarhy = hierarhy;
+        }
+
         public SevaTreeView()
         {
             InitializeComponent();
-            treeView1.AfterSelect += (sender, e) => _event?.Invoke(sender, e);
         }
-        private event EventHandler _event;
-
-        public event EventHandler SelectedNodeChanged
+        private int _selectedNodeIndex = 0;
+        public int SelectedNodeIndex
         {
-            add
-            {
-                _event += value;
-            }
-            remove
-            {
-                _event -= value;
-            }
+            get { return _selectedNodeIndex; }
+            set { if (treeView.SelectedNode != null) _selectedNodeIndex = treeView.SelectedNode.Index; }
         }
-        public int SelectedIndex
+        public T GetSelectedValue<T>()
         {
-            get
+            if (treeView.SelectedNode.Nodes.Count == 0)
             {
-                if (treeView1.SelectedNode != null)
+                T val = Activator.CreateInstance<T>();
+                foreach (string item in Enumerable.Reverse(_hierarhy))
                 {
-                    return treeView1.SelectedNode.Index;
-                } else
-                {
-                    return -1;
-                }
-            }
-            set
-            {
-                if (treeView1.Nodes.Count > 0)
-                {
-                    if (value < treeView1.Nodes.Count && value > -1)
+                    string text = treeView.SelectedNode.Text;
+                    PropertyInfo property = val.GetType().GetProperty(item);
+                    PropertyInfo propertyInfo = property;
+                    Type conversionType = property?.PropertyType;
+                    propertyInfo.SetValue(val, Convert.ChangeType(text, conversionType));
+                    if (treeView.SelectedNode.Parent != null)
                     {
-                        treeView1.SelectedNode = treeView1.Nodes[value];
-                        treeView1.Focus();
-                        return;
-                    }                
+                        treeView.SelectedNode = treeView.SelectedNode.Parent;
+                    }
                 }
+
+                return val;
             }
+
+            return default(T);
+
         }
-        private List<string> config;
-        public void SetConfig(List<string> config)
+
+        public void Add<T>(T obj)
         {
-            if (config == null)
-                throw new NullReferenceException("Add not null config");
-            this.config = config;
+            TreeNodeCollection nodes = treeView.Nodes;
+            foreach (string item in _hierarhy)
+            {
+                PropertyInfo property = obj.GetType().GetProperty(item);
+                string text = property.GetValue(obj, null).ToString();
+                if (nodes.ContainsKey(text + _hierarhy.IndexOf(item)))
+                {
+                    TreeNode treeNode = nodes.Find(text + _hierarhy.IndexOf(item), searchAllChildren: true)[0];
+                    nodes = treeNode.Nodes;
+                    continue;
+                }
+
+                if (_hierarhy.IndexOf(item) == _hierarhy.Count - 1)
+                {
+                    nodes.Add(text);
+                    continue;
+                }
+
+                TreeNode treeNode2 = new TreeNode
+                {
+                    Name = text + _hierarhy.IndexOf(item),
+                    Text = text
+                };
+                nodes.Add(treeNode2);
+                nodes = treeNode2.Nodes;
+            }
         }
         public void CreateTree<T>(T obj) where T : class, new()
         {
-            if (config == null)
+            if (_hierarhy == null)
                 throw new NullReferenceException("Add not null config");
             if (obj == null)
                 throw new NullReferenceException("Add not null list of objects");
 
             var elementType = obj.GetType();
-            
-            var currentLevelNodes = treeView1.Nodes;
+
+            var currentLevelNodes = treeView.Nodes;
             int curlvl = 1;
-            foreach (var nodeName in config)
+            foreach (var nodeName in _hierarhy)
             {
                 var propertyInfo = elementType.GetProperty(nodeName);
                 if (propertyInfo != null)
@@ -82,14 +103,14 @@ namespace WinFormsControlLibraryBasharin
                     var propertyValue = propertyInfo.GetValue(obj).ToString();
                     if (!currentLevelNodes.ContainsKey(propertyValue))
                     {
-                        if (curlvl == config.Count)
+                        if (curlvl == _hierarhy.Count)
                         {
                             currentLevelNodes.Add(propertyValue);
                         }
                         else
                             currentLevelNodes.Add(propertyValue, propertyValue);
                     }
-                    if (curlvl != config.Count)
+                    if (curlvl != _hierarhy.Count)
                         currentLevelNodes = currentLevelNodes.Find(propertyValue, false)[0].Nodes;
                 }
                 else
@@ -100,58 +121,30 @@ namespace WinFormsControlLibraryBasharin
                         var fieldValue = fieldInfo.GetValue(obj).ToString();
                         if (!currentLevelNodes.ContainsKey(fieldValue))
                         {
-                            if (curlvl == config.Count)
+                            if (curlvl == _hierarhy.Count)
                             {
                                 currentLevelNodes.Add(fieldValue);
                             }
                             else
                                 currentLevelNodes.Add(fieldValue, fieldValue);
                         }
-                        if (curlvl != config.Count)
+                        if (curlvl != _hierarhy.Count)
                             currentLevelNodes = currentLevelNodes.Find(fieldValue, false)[0].Nodes;
                     }
                 }
                 curlvl++;
             }
-        }
-        public T GetSelectedNode<T>() where T : class, new()
-        {
-            if (treeView1.SelectedNode == null)
-                return null;
-            var curNode = treeView1.SelectedNode;
-            if (curNode.Nodes.Count > 0)
-                throw new Exception("Choose last node of tree (leaf)");
-            var Vals = new List<string>();
-            while (curNode != null)
-            {
-                Vals.Add(curNode.Text);
-                curNode = curNode.Parent;
-            }
-            Vals.Reverse();
-            var item = new T();
-            var count = item.GetType().GetProperties().Length;
-            for (int i = 0; i < config.Count; ++i)
-            {
-                if (i < count)
-                {
-                    var pinfo = item.GetType().GetProperty(config[i]);
-                    if (pinfo != null)
-                        pinfo.SetValue(item, Convert.ChangeType(Vals[i], pinfo.PropertyType));
-                }
-                else
-                {
-                    var finfo = item.GetType().GetField(config[i]);
-                    if (finfo != null)
-                    {
-                        finfo.SetValue(item, Convert.ChangeType(Vals[i], finfo.FieldType));
-                    }
-                }
-            }
-            return item;
+
+
         }
         public void Clear()
         {
-            treeView1.Nodes.Clear();
+            treeView.Nodes.Clear();
+        }
+
+        private void treeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
         }
     }
 }

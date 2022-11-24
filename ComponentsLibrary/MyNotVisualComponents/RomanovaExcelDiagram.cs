@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using Excel = Microsoft.Office.Interop.Excel;
 
-namespace NotVisualComponents
+namespace ComponentsLibrary.MyNotVisualComponents
 {
     public partial class RomanovaExcelDiagram : Component
     {

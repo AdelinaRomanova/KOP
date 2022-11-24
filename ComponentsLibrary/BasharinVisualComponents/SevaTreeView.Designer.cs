@@ -1,4 +1,4 @@
-﻿namespace WinFormsControlLibraryBasharin
+﻿namespace ComponentsLibrary.BasharinVisualComponents
 {
     partial class SevaTreeView
     {
@@ -28,29 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.treeView = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
-            // treeView1
+            // treeView
             // 
-            this.treeView1.Location = new System.Drawing.Point(0, 0);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(281, 207);
-            this.treeView1.TabIndex = 0;
+            this.treeView.Location = new System.Drawing.Point(0, 0);
+            this.treeView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.treeView.Name = "treeView";
+            this.treeView.Size = new System.Drawing.Size(321, 275);
+            this.treeView.TabIndex = 0;
+            this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
             // 
             // SevaTreeView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.treeView1);
+            this.Controls.Add(this.treeView);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "SevaTreeView";
-            this.Size = new System.Drawing.Size(284, 208);
+            this.Size = new System.Drawing.Size(325, 277);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private TreeView treeView1;
+        private TreeView treeView;
     }
 }

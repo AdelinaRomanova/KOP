@@ -1,6 +1,6 @@
 ﻿using DocumentFormat.OpenXml.Wordprocessing;
 
-namespace ComponentsLibrary.IstyukovNotVisualComponents.HelperModels
+namespace ComponentsLibrary.MyUnvisualComponents.HelperModels
 {
     public class WordTextProperties
     {

@@ -30,9 +30,9 @@
         {
             this.clear = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
-            this.romanovaComboBox = new lab.RomanovaComboBox();
-            this.romanovaTextBox = new lab.RomanovaTextBox();
-            this.romanovaListBox1 = new lab.RomanovaListBox();
+            this.romanovaComboBox = new ComponentsLibrary.MyVisualComponents.RomanovaComboBox();
+            this.romanovaTextBox = new ComponentsLibrary.MyVisualComponents.RomanovaTextBox();
+            this.romanovaListBox1 = new ComponentsLibrary.MyVisualComponents.RomanovaListBox();
             this.update = new System.Windows.Forms.Button();
             this.addTemplate = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -239,9 +239,9 @@
         #endregion
         private Button clear;
         private Button save;
-        private lab.RomanovaComboBox romanovaComboBox;
-        private lab.RomanovaTextBox romanovaTextBox;
-        private lab.RomanovaListBox romanovaListBox1;
+        private ComponentsLibrary.MyVisualComponents.RomanovaComboBox romanovaComboBox;
+        private ComponentsLibrary.MyVisualComponents.RomanovaTextBox romanovaTextBox;
+        private ComponentsLibrary.MyVisualComponents.RomanovaListBox romanovaListBox1;
         private Button update;
         private Button addTemplate;
         private TextBox textBox1;

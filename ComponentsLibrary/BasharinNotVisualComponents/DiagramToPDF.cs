@@ -9,7 +9,7 @@ using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Shapes.Charts;
 using MigraDoc.Rendering;
 
-namespace WinFormsControlLibraryBasharinLab2
+namespace ComponentsLibrary.BasharinNotVisualComponents
 {
     public partial class DiagramToPDF : Component
     {

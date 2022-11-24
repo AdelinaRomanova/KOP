@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace lab
+namespace ComponentsLibrary.MyVisualComponents
 {
     public partial class RomanovaComboBox : UserControl
     {

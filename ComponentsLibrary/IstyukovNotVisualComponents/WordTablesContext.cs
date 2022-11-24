@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel;
+using ComponentsLibrary.MyUnvisualComponents.HelperModels;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
-using ComponentsCustomUnvisual.HelperModels;
 
-namespace ComponentsCustomUnvisual
+namespace ComponentsLibrary.IstyukovNotVisualComponents
 {
     public partial class WordTablesContext : Component
     {

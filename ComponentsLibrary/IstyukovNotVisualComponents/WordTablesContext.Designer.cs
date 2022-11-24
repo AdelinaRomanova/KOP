@@ -1,4 +1,4 @@
-﻿namespace ComponentsCustomUnvisual
+﻿namespace ComponentsLibrary.IstyukovNotVisualComponents
 {
     partial class WordTablesContext
     {

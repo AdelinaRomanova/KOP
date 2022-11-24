@@ -1,4 +1,4 @@
-﻿namespace WinFormsControlLibraryBasharinLab2
+﻿namespace ComponentsLibrary.BasharinNotVisualComponents
 {
     partial class PicToPDF
     {

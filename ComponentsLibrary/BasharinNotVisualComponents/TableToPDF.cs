@@ -7,7 +7,7 @@ using Section = MigraDoc.DocumentObjectModel.Section;
 using TabAlignment = MigraDoc.DocumentObjectModel.TabAlignment;
 using Color = MigraDoc.DocumentObjectModel.Color;
 
-namespace WinFormsControlLibraryBasharinLab2
+namespace ComponentsLibrary.BasharinNotVisualComponents
 {
     public partial class TableToPDF : Component
     {

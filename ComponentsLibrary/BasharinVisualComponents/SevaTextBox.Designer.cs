@@ -1,4 +1,4 @@
-﻿namespace WinFormsControlLibraryBasharin
+﻿namespace ComponentsLibrary.BasharinVisualComponents
 {
     partial class SevaTextBox
     {

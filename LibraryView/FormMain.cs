@@ -45,7 +45,7 @@ namespace LibraryView
             ToolStripMenuItem diagramMenuItem = new ToolStripMenuItem("Диаграмма");
 
             // добавляем элементы в меню
-            contextMenu.Items.AddRange(new[] { addMenuItem, updateMenuItem, deleteMenuItem, simpleDocMenuItem, tableMenuItem, diagramMenuItem });
+            contextMenu.Items.AddRange(new[] { addMenuGenre, addMenuItem, updateMenuItem, deleteMenuItem, simpleDocMenuItem, tableMenuItem, diagramMenuItem });
 
             // ассоциируем контекстное меню с узлом дерева
             sevaTreeView.ContextMenuStrip = contextMenu;

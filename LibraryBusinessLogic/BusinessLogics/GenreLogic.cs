@@ -2,6 +2,7 @@
 using LibraryContracts.BusinessLogicsContracts;
 using LibraryContracts.StorageContracts;
 using LibraryContracts.ViewModels;
+using LibraryDatabaseImplement.Implements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,9 @@ namespace LibraryBusinessLogic.BusinessLogics
     {
         private readonly IGenreStorage _genreStorage;
 
-        public GenreLogic(IGenreStorage genreStorage)
+        public GenreLogic()
         {
-            _genreStorage = genreStorage;
+            _genreStorage = new GenreStorage();
         }
 
         public List<GenreViewModel> Read(GenreBindingModel model)

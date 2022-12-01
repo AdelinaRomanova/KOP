@@ -1,7 +1,4 @@
-using Unity;
-using Unity.Lifetime;
-
-namespace LibraryView
+namespace WinFormsAppByPlugins
 {
     public static class Program
     {

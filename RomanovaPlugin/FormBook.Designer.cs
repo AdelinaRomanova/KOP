@@ -1,4 +1,4 @@
-﻿namespace LibraryView
+﻿namespace RomanovaPlugin
 {
     partial class FormBook
     {

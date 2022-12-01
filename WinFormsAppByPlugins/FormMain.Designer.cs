@@ -1,4 +1,4 @@
-﻿namespace LibraryView
+﻿namespace WinFormsAppByPlugins
 {
     partial class FormMain
     {
@@ -51,7 +51,7 @@
             this.DocsToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(694, 28);
+            this.menuStrip.Size = new System.Drawing.Size(844, 28);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -75,21 +75,21 @@
             // 
             this.AddElementToolStripMenuItem.Name = "AddElementToolStripMenuItem";
             this.AddElementToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.AddElementToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.AddElementToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.AddElementToolStripMenuItem.Text = "Добавить";
             // 
             // UpdElementToolStripMenuItem
             // 
             this.UpdElementToolStripMenuItem.Name = "UpdElementToolStripMenuItem";
             this.UpdElementToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
-            this.UpdElementToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.UpdElementToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.UpdElementToolStripMenuItem.Text = "Изменить";
             // 
             // DelElementToolStripMenuItem
             // 
             this.DelElementToolStripMenuItem.Name = "DelElementToolStripMenuItem";
             this.DelElementToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.DelElementToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.DelElementToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.DelElementToolStripMenuItem.Text = "Удалить";
             // 
             // DocsToolStripMenuItem
@@ -125,16 +125,19 @@
             // 
             // panelControl
             // 
-            this.panelControl.Location = new System.Drawing.Point(6, 34);
+            this.panelControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl.Location = new System.Drawing.Point(0, 28);
             this.panelControl.Name = "panelControl";
-            this.panelControl.Size = new System.Drawing.Size(688, 348);
+            this.panelControl.Size = new System.Drawing.Size(844, 429);
             this.panelControl.TabIndex = 1;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 382);
+            this.ClientSize = new System.Drawing.Size(844, 457);
             this.Controls.Add(this.panelControl);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;

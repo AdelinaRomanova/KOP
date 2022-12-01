@@ -1,12 +1,7 @@
 ﻿using PluginsConventionLibrary;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Reflection;
-using System.Windows.Forms;
 
-
-namespace LibraryView
+namespace WinFormsAppByPlugins
 {
     public partial class FormMain : Form
     {
@@ -20,8 +15,26 @@ namespace LibraryView
         }
         private Dictionary<string, IPluginsConvention> LoadPlugins()
         {
-            PluginManager manager = new PluginManager();
-            var plugins = manager.plugins_dictionary;
+            var plugins = new Dictionary<string, IPluginsConvention>();
+
+            string pathFrom = "D:\\Study\\3 course\\коп\\git\\KOP\\RomanovaPlugin\\bin\\Debug\\net6.0-windows\\RomanovaPlugin.dll";
+            string pathTo = "D:\\Study\\3 course\\коп\\git\\KOP\\WinFormsAppByPlugins\\bin\\Debug\\net6.0-windows\\Plugins\\RomanovaPlugin.dll";
+            File.Copy(pathFrom, pathTo, true);
+
+            if (File.Exists(pathTo))
+            {
+                var assemblyLoadFile = Assembly.LoadFile(pathTo); // смотрит сборку
+                var types = assemblyLoadFile.GetTypes(); // получает класс-ссылки 
+                foreach (var type in types) 
+                {
+                    if (type.GetInterface("IPluginsConvention") != null)
+                    {
+                        var plug = (IPluginsConvention)Activator.CreateInstance(type); // делает из образа ссылки типа создаёт образ объекта
+                        plugins.Add(plug.PluginName, plug);
+                    }
+                }
+            }
+
             if (plugins.Count > 0)
             {
                 foreach (var plugin in plugins)
@@ -32,7 +45,7 @@ namespace LibraryView
                     {
                         panelControl.Controls.Clear();
                         _selectedPlugin = plugin.Value.PluginName;
-                        var control = _plugins[_selectedPlugin].GetControl;
+                        var control = plugins[_selectedPlugin].GetControl;
                         panelControl.Controls.Add(control);
                         panelControl.Controls[0].Dock = DockStyle.Fill;
                     };

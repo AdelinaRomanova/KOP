@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryView
+namespace RomanovaPlugin
 {
     public partial class FormManual : Form
     {

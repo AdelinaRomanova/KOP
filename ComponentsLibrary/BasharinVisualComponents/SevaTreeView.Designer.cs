@@ -33,10 +33,13 @@
             // 
             // treeView
             // 
+            this.treeView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.treeView.Location = new System.Drawing.Point(0, 0);
             this.treeView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.treeView.Name = "treeView";
-            this.treeView.Size = new System.Drawing.Size(321, 275);
+            this.treeView.Size = new System.Drawing.Size(772, 421);
             this.treeView.TabIndex = 0;
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
             // 
@@ -47,7 +50,7 @@
             this.Controls.Add(this.treeView);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "SevaTreeView";
-            this.Size = new System.Drawing.Size(325, 277);
+            this.Size = new System.Drawing.Size(775, 421);
             this.ResumeLayout(false);
 
         }

@@ -14,14 +14,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="System.ComponentModel.Composition" Version="7.0.0" />
     <PackageReference Include="Unity" Version="5.11.10" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\ComponentsLibrary\ComponentsLibrary.csproj" />
-    <ProjectReference Include="..\LibraryBusinessLogic\LibraryBusinessLogic.csproj" />
-    <ProjectReference Include="..\LibraryContracts\LibraryContracts.csproj" />
-    <ProjectReference Include="..\LibraryDatabaseImplement\LibraryDatabaseImplement.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +26,10 @@
 
   <ItemGroup>
     <Folder Include="Components\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PluginsConventionLibrary\PluginsConventionLibrary.csproj" />
   </ItemGroup>
 
 </Project>

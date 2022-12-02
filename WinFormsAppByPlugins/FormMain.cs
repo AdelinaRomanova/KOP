@@ -13,47 +13,75 @@ namespace WinFormsAppByPlugins
             _plugins = LoadPlugins();
             _selectedPlugin = string.Empty;
         }
+
         private Dictionary<string, IPluginsConvention> LoadPlugins()
         {
-            var plugins = new Dictionary<string, IPluginsConvention>();
+            PluginsManager manager = new PluginsManager();
+            var plugins = manager.plugins_dictionary;
 
-            string pathFrom = "D:\\Study\\3 course\\коп\\git\\KOP\\RomanovaPlugin\\bin\\Debug\\net6.0-windows\\RomanovaPlugin.dll";
-            string pathTo = "D:\\Study\\3 course\\коп\\git\\KOP\\WinFormsAppByPlugins\\bin\\Debug\\net6.0-windows\\Plugins\\RomanovaPlugin.dll";
-            File.Copy(pathFrom, pathTo, true);
-
-            if (File.Exists(pathTo))
-            {
-                var assemblyLoadFile = Assembly.LoadFile(pathTo); // смотрит сборку
-                var types = assemblyLoadFile.GetTypes(); // получает класс-ссылки 
-                foreach (var type in types) 
-                {
-                    if (type.GetInterface("IPluginsConvention") != null)
-                    {
-                        var plug = (IPluginsConvention)Activator.CreateInstance(type); // делает из образа ссылки типа создаёт образ объекта
-                        plugins.Add(plug.PluginName, plug);
-                    }
-                }
-            }
-
+            ToolStripItem[] toolStripItems = new ToolStripItem[plugins.Count];
+            int i = 0;
             if (plugins.Count > 0)
             {
                 foreach (var plugin in plugins)
                 {
-                    ToolStripMenuItem menuItem = new ToolStripMenuItem();
-                    menuItem.Text = plugin.Value.PluginName;
-                    menuItem.Click += (sender, e) =>
+                    ToolStripMenuItem itemMenu = new ToolStripMenuItem();
+                    itemMenu.Text = plugin.Value.PluginName;
+                    itemMenu.Click += (sender, e) =>
                     {
-                        panelControl.Controls.Clear();
                         _selectedPlugin = plugin.Value.PluginName;
-                        var control = plugins[_selectedPlugin].GetControl;
-                        panelControl.Controls.Add(control);
+                        panelControl.Controls.Clear();
+                        panelControl.Controls.Add(_plugins[_selectedPlugin].GetControl);
                         panelControl.Controls[0].Dock = DockStyle.Fill;
                     };
-                    ControlsStripMenuItem.DropDownItems.Add(menuItem);
+                    toolStripItems[i] = itemMenu;
+                    i++;
                 }
+                ControlsStripMenuItem.DropDownItems.AddRange(toolStripItems);
             }
             return plugins;
         }
+        //private Dictionary<string, IPluginsConvention> LoadPlugins()
+        //{
+        //    var plugins = new Dictionary<string, IPluginsConvention>();
+
+        //    string pathFrom = "D:\\Study\\3 course\\коп\\git\\KOP\\RomanovaPlugin\\bin\\Debug\\net6.0-windows\\RomanovaPlugin.dll";
+        //    string pathTo = "D:\\Study\\3 course\\коп\\git\\KOP\\WinFormsAppByPlugins\\bin\\Debug\\net6.0-windows\\Plugins\\RomanovaPlugin.dll";
+        //    File.Copy(pathFrom, pathTo, true);
+
+        //    if (File.Exists(pathTo))
+        //    {
+        //        var assemblyLoadFile = Assembly.LoadFile(pathTo); 
+        //        var types = assemblyLoadFile.GetTypes(); 
+        //        foreach (var type in types) 
+        //        {
+        //            if (type.GetInterface("IPluginsConvention") != null) 
+        //            {
+        //                var plug = (IPluginsConvention)Activator.CreateInstance(type); 
+        //                plugins.Add(plug.PluginName, plug);
+        //            }
+        //        }
+        //    }
+
+        //    if (plugins.Count > 0)
+        //    {
+        //        foreach (var plugin in plugins)
+        //        {
+        //            ToolStripMenuItem menuItem = new ToolStripMenuItem();
+        //            menuItem.Text = plugin.Value.PluginName;
+        //            menuItem.Click += (sender, e) =>
+        //            {
+        //                panelControl.Controls.Clear();
+        //                _selectedPlugin = plugin.Value.PluginName;
+        //                var control = plugins[_selectedPlugin].GetControl;
+        //                panelControl.Controls.Add(control);
+        //                panelControl.Controls[0].Dock = DockStyle.Fill;
+        //            };
+        //            ControlsStripMenuItem.DropDownItems.Add(menuItem);
+        //        }
+        //    }
+        //    return plugins;
+        //}
 
         private void FormMain_KeyDown(object sender, KeyEventArgs e)
         {
